@@ -9,5 +9,8 @@ cd api-abellan-theo
 npm install
 
 npm start : lance l'application
+
 npm run dev : nodemon
+
 npm run seed : réinitialise la db
+
