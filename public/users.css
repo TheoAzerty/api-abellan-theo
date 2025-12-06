@@ -1,0 +1,24 @@
+.entete {
+    text-align: center;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+li{
+    padding: 8px 0;
+    display: grid;
+    list-style: none;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 75%;
+    margin-bottom: 15px;
+    gap: 6px;
+}
+.submit{
+    margin-top: 7px;
+}

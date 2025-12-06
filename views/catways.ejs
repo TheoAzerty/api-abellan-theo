@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catways</title>
+    <link rel="stylesheet" href="catways.css">
+</head>
+
+<body>
+
+    <div class="entete">
+        <a href="/home">
+            <button style="border: 1px solid #ccc; width: 40px; height: 40px; background-color: white; border-radius: 5px;" ><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
+            </svg>
+            </button>
+        </a>
+        <h1>Catways</h1>
+    </div>
+
+    <div class="addcatway">
+        <!-- Formulaire pour ajouter un catway -->
+        <form action="/catways" method="POST">
+            <input type="number" name="catwayNumber" placeholder="Numéro du Catway" required>
+            <select name="catwayType" required>
+                <option value="">Type de Catway</option>
+                <option value="long">Long</option>
+                <option value="short">Short</option>
+            </select>
+            <input type="text" name="catwayState" placeholder="Etat du Catway" required>
+            <button type="submit">Ajouter Catway</button>
+        </form>
+    </div>
+    <!-- Liste des catways -->
+    <ul class="catway-list">
+    <% catways.forEach(catway => { %>
+        <li class="catway-item">
+            <!-- Ligne 1 : affichage + bouton supprimer -->
+            <div class="line1">
+                Numéro: <%= catway.catwayNumber %> |
+                Type: <%= catway.catwayType %> |
+                Etat: <%= catway.catwayState %>
+                <form action="/catways/delete/<%= catway._id %>" method="POST" class="inline-form">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </div>
+
+            <!-- Ligne 2 : formulaire modifier -->
+            <div class="line2">
+                <form action="/catways/edit/<%= catway._id %>" method="POST" class="inline-form">
+                    <input type="number" name="catwayNumber" value="<%= catway.catwayNumber %>" required>
+                    <select name="catwayType" required>
+                        <option value="long" <%= catway.catwayType === 'long' ? 'selected' : '' %>>Long</option>
+                        <option value="short" <%= catway.catwayType === 'short' ? 'selected' : '' %>>Short</option>
+                    </select>
+                    <input type="text" name="catwayState" value="<%= catway.catwayState %>" required>
+                    <button type="submit">Modifier</button>
+                </form>
+            </div>
+        </li>
+    <% }) %>
+</ul>
+
+</body>
+
+</html>

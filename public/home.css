@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+.container-home {
+    margin: 10px 10px;
+    padding: 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    background-color: rgb(29, 74, 170);
+    color: #ccc;
+}
+h1{
+    margin: 10px 20px;
+    padding-bottom: 20px;
+}
+a, button:hover{
+cursor: pointer;
+background-color: rgb(28, 50, 97);
+}

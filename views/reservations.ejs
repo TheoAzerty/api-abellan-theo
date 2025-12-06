@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+
+<body>
+
+
+    <div class="entete">
+        <a href="/home">
+            <button
+                style="border: 1px solid #ccc; width: 40px; height: 40px; background-color: white; border-radius: 5px;"><svg
+                    class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                        d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </a>
+        <h1>Reservations</h1>
+    </div>
+
+    <!-- Formulaire pour ajouter une reservation -->
+    <div class="reservation-form">
+        <form action="/reservations" method="POST">
+            <input type="number" name="catwayNumber" placeholder="Numéro du Catway" required>
+            <input type="text" name="clientName" placeholder="Nom du client" required>
+            <input type="text" name="boatName" placeholder="Nom du bateau" required>
+            <label>Start Date:</label>
+            <input type="date" name="startDate" required>
+            <label>End Date:</label>
+            <input type="date" name="endDate" required>
+            <button type="submit">Ajouter Reservation</button>
+        </form>
+    </div>
+
+    <!-- Liste des reservations -->
+    <ul>
+        <% reservations.forEach(reservation=> { %>
+            <li>
+                Catway: <%= reservation.catwayNumber %> |
+                    Client: <%= reservation.clientName %> |
+                        Bateau: <%= reservation.boatName %> |
+                            Du: <%= reservation.startDate.toISOString().split('T')[0] %>
+                                Au: <%= reservation.endDate.toISOString().split('T')[0] %>
+                                    <form action="/reservations/delete/<%= reservation._id %>" method="POST"
+                                        style="display:inline">
+                                        <button type="submit">Supprimer</button>
+                                    </form>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>

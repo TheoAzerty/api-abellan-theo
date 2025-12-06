@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="container-home">
+        <h1>Bienvenue <%= user.username %>
+        </h1>
+
+        <div>
+            <a href="/catways">
+                <button>Voir les Catways</button>
+            </a>
+        </div>
+
+        <div>
+            <a href="/reservations">
+                <button>Voir les Reservations</button>
+            </a>
+        </div>
+        <div>
+            <a href="/users"><button>Voir les Utilisateurs</button></a>
+        </div>
+        <div>
+            <a href="/logout">
+                <button>Se déconnecter</button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

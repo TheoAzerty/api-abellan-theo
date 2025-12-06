@@ -1,0 +1,59 @@
+
+.entete {
+    text-align: center;
+}
+
+h1 {
+    margin: 40px 10px;
+}
+
+.addcatway {
+    text-align: center;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+    padding: 20px 15px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.catway-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centre horizontalement */
+    gap: 20px;
+    /* espace entre les li */
+    padding-top: 25px;
+}
+
+.catway-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 45%;
+    /* largeur du bloc */
+    text-align: center;
+    /* centre le texte à l'intérieur */
+    background-color: #f9f9f954;
+
+}
+
+.line1,
+.line2 {
+    margin: 5px 0;
+}
+
+.inline-form {
+    display: inline-block;
+    /* les boutons restent sur la même ligne que le texte */
+    margin-left: 10px;
+}
+
+input,
+select {
+    margin-right: 5px;
+    padding: 5px;
+}
